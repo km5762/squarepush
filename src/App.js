@@ -1,14 +1,15 @@
 import "./reset.css";
 import "./App.css";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import ConfigSwitch from "./components/ConfigSwitch";
 import * as configs from "./configs/configs";
 import GameCanvas from "./components/GameCanvas";
 
 function App() {
   const [gameBoard, setGameBoard] = useState();
-  const [configList] = useState(() =>
-    Object.values(configs).sort((a, b) => a.name.localeCompare(b.name))
+  const configList = useMemo(
+    () => Object.values(configs).sort((a, b) => a.name.localeCompare(b.name)),
+    []
   );
 
   return (
