@@ -1,4 +1,4 @@
-import Color from "../enums/Color";
+import Color from "../enums/Color.js";
 
 export default class ColorTile {
   constructor(row, col, color) {

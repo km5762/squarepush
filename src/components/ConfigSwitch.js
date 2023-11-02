@@ -10,7 +10,11 @@ export default function ConfigSwitch({ configs, setGameBoard }) {
 
       const rows = config.numRows;
       const cols = config.numColumns;
-      const ninjaSe = new NinjaSe(config.ninjaRow, config.ninjaColumn);
+      const ninjaSe = new NinjaSe(
+        parseInt(config.ninjaRow) - 1,
+        config.ninjaColumn.toLowerCase().charCodeAt(0) - 97
+      );
+
       const colorTiles = config.initial.map(
         (colorTile) =>
           new ColorTile(
