@@ -16,14 +16,16 @@ export default function ConfigSwitch({ configs, setGameBoard }) {
   ));
 
   function chooseConfig(config) {
+    console.log(config.initial);
+
     const rows = config.numRows;
     const cols = config.numColumns;
     const ninjaSe = new NinjaSe(config.ninjaRow, config.ninjaColumn);
     const colorTiles = config.initial.map(
       (colorTile) =>
         new ColorTile(
-          colorTile.row,
-          colorTile.column,
+          parseInt(colorTile.row) - 1,
+          colorTile.column.toLowerCase().charCodeAt(0) - 97,
           colorTile.color.toUpperCase()
         )
     );

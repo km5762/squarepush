@@ -15,7 +15,10 @@ function App() {
   return (
     <>
       <ConfigSwitch
-        configs={Object.values(configs)}
+        /// this is necessary because order isnt preserved from object.values
+        configs={Object.values(configs).sort((a, b) =>
+          a.name.localeCompare(b.name)
+        )}
         setGameBoard={setGameBoard}
       />
       <GameCanvas gameBoard={gameBoard} width={600} height={600} />
