@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./reset.css";
+import "./App.css";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import GameBoard from "./classes/GameBoard";
+import ColorTile from "./classes/ColorTile";
+import NinjaSe from "./classes/NinjaSe";
+import ConfigSwitch from "./components/ConfigSwitch";
+import * as configs from "./configs/configs";
 
 function App() {
+  const [gameBoard, setGameBoard] = useState();
+
+  useEffect(() => {
+    console.log(gameBoard);
+  }, [gameBoard]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ConfigSwitch
+        configs={Object.values(configs)}
+        setGameBoard={setGameBoard}
+      />
+    </>
   );
 }
 
