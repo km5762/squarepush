@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import ConfigSwitch from "./components/ConfigSwitch";
 import * as configs from "./configs/configs";
 import GameCanvas from "./components/GameCanvas";
+import MovementControls from "./components/MovementControls";
 
 function App() {
   const [gameBoard, setGameBoard] = useState();
@@ -16,6 +17,7 @@ function App() {
     <>
       <ConfigSwitch configs={configList} setGameBoard={setGameBoard} />
       <GameCanvas gameBoard={gameBoard} width={600} height={600} />
+      <MovementControls gameBoard={gameBoard} setGameBoard={setGameBoard} />
     </>
   );
 }

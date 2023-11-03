@@ -76,10 +76,10 @@ export default function GameCanvas({ gameBoard, width, height }) {
       context.strokeStyle = "#22b14c";
       context.fillStyle = "#22b14c";
       context.fillRect(
-        ninjaSe.anchorCol * colWidth + 1,
-        ninjaSe.anchorRow * rowWidth + 1,
-        rowWidth * 2 - 1,
-        colWidth * 2 - 1
+        ninjaSe.anchorCol * colWidth,
+        ninjaSe.anchorRow * rowWidth,
+        rowWidth * 2,
+        colWidth * 2
       );
     }
   }, [gameBoard, height, width]);
