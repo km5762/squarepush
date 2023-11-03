@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <ConfigSwitch configs={configList} setGameBoard={setGameBoard} />
-      <GameCanvas gameBoard={gameBoard} width={600} height={600} />
+      <GameCanvas gameBoard={gameBoard} width={500} height={500} />
       <MovementControls gameBoard={gameBoard} setGameBoard={setGameBoard} />
     </>
   );

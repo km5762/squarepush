@@ -6,10 +6,8 @@ import GameBoard from "../classes/GameBoard";
 export default function ConfigSwitch({ configs, setGameBoard }) {
   const chooseConfig = useCallback(
     (config) => {
-      console.log(config.initial);
-
-      const rows = config.numRows;
-      const cols = config.numColumns;
+      const rows = parseInt(config.numRows);
+      const cols = parseInt(config.numColumns);
       const ninjaSe = new NinjaSe(
         parseInt(config.ninjaRow) - 1,
         config.ninjaColumn.toLowerCase().charCodeAt(0) - 97
