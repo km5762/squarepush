@@ -3,7 +3,12 @@ import GameBoard from "../classes/GameBoard";
 import NinjaSe from "../classes/NinjaSe";
 import Direction from "../enums/Direction";
 
-export default function MovementControls({ gameBoard, setGameBoard }) {
+export default function MovementControls({
+  gameBoard,
+  setGameBoard,
+  incrementMoveCount,
+  updateScore,
+}) {
   function moveNinjaSe(direction) {
     let xChange = 0;
     let yChange = 0;
@@ -31,8 +36,6 @@ export default function MovementControls({ gameBoard, setGameBoard }) {
       oldNinjaSe.anchorRow + yChange,
       oldNinjaSe.anchorCol + xChange
     );
-
-    console.log(newNinjaSe);
 
     const oldColorTiles = gameBoard.colorTiles;
     const newColorTiles = oldColorTiles.map(
@@ -68,8 +71,6 @@ export default function MovementControls({ gameBoard, setGameBoard }) {
       }
     }
 
-    console.log(newColorTiles);
-
     for (const vector of affectedVectors) {
       for (
         let i = firstAffectedCrossVector;
@@ -91,6 +92,8 @@ export default function MovementControls({ gameBoard, setGameBoard }) {
           break;
         }
 
+        updateScore(1);
+
         newColorTiles[affectedTileIndex].row =
           (((newColorTiles[affectedTileIndex].row + yChange) % gameBoard.rows) +
             gameBoard.rows) %
@@ -109,6 +112,7 @@ export default function MovementControls({ gameBoard, setGameBoard }) {
       newColorTiles
     );
 
+    incrementMoveCount();
     setGameBoard(newGameBoard);
   }
 
