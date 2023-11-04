@@ -52,6 +52,7 @@ export default function GameControls({
     indicesToRemove.sort((a, b) => b - a);
 
     indicesToRemove.forEach((index) => {
+      updateScore(1);
       newColorTiles.splice(index, 1);
     });
 
