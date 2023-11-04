@@ -4,10 +4,10 @@ import { useMemo, useState, useCallback, useEffect } from "react";
 import ConfigSwitch from "./components/ConfigSwitch";
 import * as configs from "./configs/configs";
 import GameCanvas from "./components/GameCanvas";
-import MovementControls from "./components/MovementControls";
 import NinjaSe from "./classes/NinjaSe";
 import ColorTile from "./classes/ColorTile";
 import GameBoard from "./classes/GameBoard";
+import GameControls from "./components/GameControls";
 
 function App() {
   const [gameBoard, setGameBoard] = useState();
@@ -91,7 +91,7 @@ function App() {
             gap: "2rem",
           }}
         >
-          <MovementControls
+          <GameControls
             gameBoard={gameBoard}
             setGameBoard={setGameBoard}
             incrementMoveCount={incrementMoveCount}
