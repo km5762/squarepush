@@ -32,10 +32,20 @@ export default function MovementControls({
 
     const oldNinjaSe = gameBoard.ninjaSe;
 
-    const newNinjaSe = new NinjaSe(
-      oldNinjaSe.anchorRow + yChange,
-      oldNinjaSe.anchorCol + xChange
-    );
+    const newAnchorRow = oldNinjaSe.anchorRow + yChange;
+    const newAnchorCol = oldNinjaSe.anchorCol + xChange;
+
+    console.log(newAnchorCol);
+    if (
+      newAnchorRow < 0 ||
+      newAnchorRow > gameBoard.rows - 2 ||
+      newAnchorCol < 0 ||
+      newAnchorCol > gameBoard.cols - 2
+    ) {
+      return;
+    }
+
+    const newNinjaSe = new NinjaSe(newAnchorRow, newAnchorCol);
 
     const oldColorTiles = gameBoard.colorTiles;
     const newColorTiles = oldColorTiles.map(
@@ -117,11 +127,20 @@ export default function MovementControls({
   }
 
   return (
-    <>
+    <div style={{ display: "flex", alignItems: "center" }}>
       <button onClick={() => moveNinjaSe(Direction.LEFT)}>Left</button>
-      <button onClick={() => moveNinjaSe(Direction.UP)}>Up</button>
-      <button onClick={() => moveNinjaSe(Direction.DOWN)}>Down</button>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "2rem",
+        }}
+      >
+        <button onClick={() => moveNinjaSe(Direction.UP)}>Up</button>
+        <button onClick={() => moveNinjaSe(Direction.DOWN)}>Down</button>
+      </div>
       <button onClick={() => moveNinjaSe(Direction.RIGHT)}>Right</button>
-    </>
+    </div>
   );
 }
