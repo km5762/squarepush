@@ -65,6 +65,7 @@ export default function GameControls({
       newColorTiles
     );
 
+    incrementMoveCount();
     setGameBoard(newGameBoard);
     setIsWon(newColorTiles.length === 0);
   }

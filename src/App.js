@@ -45,6 +45,8 @@ function App() {
 
       setConfigNum(num);
       setIsWon(false);
+      setMoveCount(0);
+      setScore(0);
       setGameBoard(new GameBoard(rows, cols, ninjaSe, colorTiles));
     },
     [configList]
@@ -83,7 +85,10 @@ function App() {
             <p>Moves:{moveCount}</p>
             <p>Score:{score}</p>
           </div>
-          <GameCanvas gameBoard={gameBoard} width={500} height={500} />
+          <div>
+            <GameCanvas gameBoard={gameBoard} width={500} height={500} />
+            {isWon && <p>you win 🙂</p>}
+          </div>
         </div>
         <div
           style={{
@@ -104,7 +109,6 @@ function App() {
           />
           <button onClick={resetGame}>Reset</button>
         </div>
-        {isWon && <p>WON</p>}
       </div>
     </>
   );
