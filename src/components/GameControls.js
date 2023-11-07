@@ -8,6 +8,8 @@ export default function GameControls({
   setGameBoard,
   incrementMoveCount,
   updateScore,
+  setIsWon,
+  isWon,
 }) {
   function removeGroups() {
     const newColorTiles = gameBoard.colorTiles.map(
@@ -64,12 +66,14 @@ export default function GameControls({
     );
 
     setGameBoard(newGameBoard);
+    setIsWon(newColorTiles.length === 0);
   }
 
   return (
     <>
       <button onClick={removeGroups}>Remove Groups</button>
       <MovementControls
+        isWon={isWon}
         gameBoard={gameBoard}
         setGameBoard={setGameBoard}
         incrementMoveCount={incrementMoveCount}

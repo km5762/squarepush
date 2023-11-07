@@ -8,6 +8,7 @@ export default function MovementControls({
   setGameBoard,
   incrementMoveCount,
   updateScore,
+  isWon,
 }) {
   function moveNinjaSe(direction) {
     let xChange = 0;
@@ -128,7 +129,9 @@ export default function MovementControls({
 
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
-      <button onClick={() => moveNinjaSe(Direction.LEFT)}>Left</button>
+      <button onClick={() => moveNinjaSe(Direction.LEFT)} disabled={isWon}>
+        Left
+      </button>
       <div
         style={{
           display: "flex",
@@ -137,10 +140,16 @@ export default function MovementControls({
           gap: "2rem",
         }}
       >
-        <button onClick={() => moveNinjaSe(Direction.UP)}>Up</button>
-        <button onClick={() => moveNinjaSe(Direction.DOWN)}>Down</button>
+        <button onClick={() => moveNinjaSe(Direction.UP)} disabled={isWon}>
+          Up
+        </button>
+        <button onClick={() => moveNinjaSe(Direction.DOWN)} disabled={isWon}>
+          Down
+        </button>
       </div>
-      <button onClick={() => moveNinjaSe(Direction.RIGHT)}>Right</button>
+      <button onClick={() => moveNinjaSe(Direction.RIGHT)} disabled={isWon}>
+        Right
+      </button>
     </div>
   );
 }

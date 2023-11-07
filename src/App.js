@@ -14,6 +14,7 @@ function App() {
   const [moveCount, setMoveCount] = useState(0);
   const [score, setScore] = useState(0);
   const [configNum, setConfigNum] = useState();
+  const [isWon, setIsWon] = useState(false);
   const configList = useMemo(
     () => Object.values(configs).sort((a, b) => a.name.localeCompare(b.name)),
     []
@@ -43,12 +44,14 @@ function App() {
       );
 
       setConfigNum(num);
+      setIsWon(false);
       setGameBoard(new GameBoard(rows, cols, ninjaSe, colorTiles));
     },
     [configList]
   );
 
   function resetGame() {
+    setIsWon(false);
     setMoveCount(0);
     setScore(0);
     chooseConfig(configNum);
@@ -92,6 +95,8 @@ function App() {
           }}
         >
           <GameControls
+            isWon={isWon}
+            setIsWon={setIsWon}
             gameBoard={gameBoard}
             setGameBoard={setGameBoard}
             incrementMoveCount={incrementMoveCount}
@@ -99,6 +104,7 @@ function App() {
           />
           <button onClick={resetGame}>Reset</button>
         </div>
+        {isWon && <p>WON</p>}
       </div>
     </>
   );
