@@ -48,6 +48,7 @@ export default function GameControls({
         bottomRightTile !== -1
       ) {
         indicesToRemove.push(i, topRightTile, bottomLeftTile, bottomRightTile);
+        incrementMoveCount();
       }
     }
 
@@ -65,7 +66,6 @@ export default function GameControls({
       newColorTiles
     );
 
-    incrementMoveCount();
     setGameBoard(newGameBoard);
     setIsWon(newColorTiles.length === 0);
   }

@@ -20,7 +20,8 @@ function App() {
     []
   );
 
-  const incrementMoveCount = () => setMoveCount(moveCount + 1);
+  const incrementMoveCount = () =>
+    setMoveCount((prevMoveCount) => prevMoveCount + 1);
   const updateScore = (affectedTiles) =>
     setScore((prevScore) => prevScore + affectedTiles);
 
