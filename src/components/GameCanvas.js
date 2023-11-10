@@ -3,18 +3,18 @@ import React, { useEffect, useRef } from "react";
 export default function GameCanvas({ gameBoard, width, height }) {
   const canvasRef = useRef(null);
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const context = canvas?.getContext("2d");
+  // useEffect(() => {
+  //   const canvas = canvasRef.current;
+  //   const context = canvas?.getContext("2d");
 
-    // Set actual size in memory (scaled to account for extra pixel density).
-    const scale = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas.
-    canvas.width = Math.floor(width * scale);
-    canvas.height = Math.floor(width * scale);
+  //   // Set actual size in memory (scaled to account for extra pixel density).
+  //   const scale = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas.
+  //   canvas.width = Math.floor(width * scale);
+  //   canvas.height = Math.floor(width * scale);
 
-    // Normalize coordinate system to use CSS pixels.
-    context.scale(scale, scale);
-  }, [width]);
+  //   // Normalize coordinate system to use CSS pixels.
+  //   context.scale(scale, scale);
+  // }, [width]);
 
   useEffect(() => {
     const rows = gameBoard?.rows;

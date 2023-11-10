@@ -87,7 +87,7 @@ function App() {
             <p>Score:{score}</p>
           </div>
           <div>
-            <GameCanvas gameBoard={gameBoard} width={500} height={500} />
+            <GameCanvas gameBoard={gameBoard} width={600} height={600} />
             {isWon && <p>you win 🙂</p>}
           </div>
         </div>
