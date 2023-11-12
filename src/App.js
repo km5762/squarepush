@@ -83,12 +83,16 @@ function App() {
           }}
         >
           <div style={{ display: "flex", gap: "10rem" }}>
-            <p>Moves:{moveCount}</p>
-            <p>Score:{score}</p>
+            <p style={{ fontSize: "1.5rem" }}>Moves:{moveCount}</p>
+            <p style={{ fontSize: "1.5rem" }}>Score:{score}</p>
           </div>
           <div>
             <GameCanvas gameBoard={gameBoard} width={600} height={600} />
-            {isWon && <p>you win 🙂</p>}
+            {isWon && (
+              <p style={{ fontSize: "2rem", textAlign: "center" }}>
+                you win 🙂
+              </p>
+            )}
           </div>
         </div>
         <div
